@@ -1,0 +1,2 @@
+JID=username@xmppaddress.org
+PASSWORD=your-password

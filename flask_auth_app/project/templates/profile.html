@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+
+
+<form method="POST" action="/startradio">
+  <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Start Radio listener" name="profile">
+<!--T//  <button >Sign Up</button>-->
+</form>
+<br>
+
+<form method="POST" action="/profile">
+  <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Start Screen" name="profile">
+<!--T//  <button >Sign Up</button>-->
+</form>
+<br>
+<form method="POST" action="/killscreen">
+  <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Kill Screen" name="profile">
+<!--T//  <button >Sign Up</button>-->
+</form>
+
+{% endblock %}
