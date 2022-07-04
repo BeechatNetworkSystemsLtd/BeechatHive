@@ -1,8 +1,11 @@
-# Beechat Hive -  _The RPi Beechat to XMPP bridge_
+# Beechat Hive -  _The Beechat to XMPP bridge_
 
 ## Current features
 1. Turn the XMPP message forwarder on
 2. Display data on screen
+
+## Diagram of operation
+[![img](https://raw.githubusercontent.com/BeechatNetworkSystemsLtd/BeechatHive/main/diagram.png)]()
 
 ## Hardware requirements
 - Any Raspberry Pi
