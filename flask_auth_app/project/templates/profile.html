@@ -6,13 +6,40 @@
 </h1>
 
 
+<!--T//  Testing message sending >-->
+
+
+<form action="/sendmessage" method="post">
+  <label for="gateway">Gateway address:</label>
+  <input type="text" id="gateway" name="gateway" placeholder="0013A20041EFD43B">
+
+  <label for="xmppaddress">XMPP address:</label>
+  <input type="text" id="xmppaddress" name="xmppaddress" placeholder="xmppaddress">
+
+  <label for="message">Message:</label>
+  <input type="text" id="message" name="message" placeholder="message">
+
+  <button type="submit">Send</button>
+</form>
+
+
+<!--T//  Testing message sending >-->
+
+
 <form method="POST" action="/startradio">
   <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Start Radio listener" name="profile">
 <!--T//  <button >Sign Up</button>-->
 </form>
 <br>
 
-<form method="POST" action="/profile">
+
+
+
+
+
+
+<br>
+<form method="POST" action="/startscreen">
   <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Start Screen" name="profile">
 <!--T//  <button >Sign Up</button>-->
 </form>

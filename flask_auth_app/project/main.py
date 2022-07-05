@@ -14,7 +14,7 @@ def index():
 def profile():
     return render_template('profile.html', name=current_user.name)
 
-@main.route('/profile', methods=['POST'])
+@main.route('/startscreen', methods=['POST'])
 def startScreen():
     subprocess.Popen(["""cd "/home/beechat/e-Paper/RaspberryPi_JetsonNano/python/examples"
 python epd_2in13_V2_test.py"""])
@@ -35,4 +35,22 @@ def killScreen():
     # screenid=$(ps aux | grep epd | awk -F '${epd}' '{print $1}' | awk  '{print $2}' | awk '{print $1}' | sed -n 1p |cut -d " " -f1); kill $screenid
     # kill $screenid
     subprocess.Popen(["/home/beechat/flask_auth_app/killscreen.sh"])
+    return redirect(url_for('main.profile'))
+
+
+@main.route('/sendmessage', methods =["GET", "POST"])
+def gfg():
+    if request.method == "POST":
+       # getting input with name = fname in HTML form
+       gateway = request.form.get("gateway")
+
+       # getting input with name = lname in HTML form
+       xmppaddress = request.form.get("xmppaddress")
+
+       message = request.form.get("message")
+       print("sudo /bin/python /home/beechat/flask_auth_app/project/sender.py \"<G>"+gateway+"</G><T>"+ xmppaddress +"</T><M>"+ message+"</M>\"")
+
+       subprocess.Popen(["sudo /bin/python /home/beechat/flask_auth_app/project/sender.py \"<G>"+gateway+"</G><T>"+ xmppaddress +"</T><M>"+ message+"</M>\"" ], shell=True)
+       
+       #print(process.args())
     return redirect(url_for('main.profile'))

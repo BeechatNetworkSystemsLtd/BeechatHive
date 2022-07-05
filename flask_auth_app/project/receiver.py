@@ -56,15 +56,23 @@ def main():
                 #s = "<T>user@xmppdomain.org</T><M>Sending from sender script</M>"
                 # TODO: replace prefix and suffix for bytes and encode string.
                 
-                startTO = s.find("<T>") + len("<T>")
-                endTO = s.find("</T>")
-                sendTO= s[startTO:endTO]
-                print("Forward XMPP to:" +sendTO)
 
-                startMSG = s.find("<M>") + len("<M>")
-                endMSG = s.find("</M>")
-                MSG = s[startMSG:endMSG]
-                print("Message:" +MSG)
+
+                b='<T>'
+                c='</T>'
+                l=s.find(b)+len(b)
+                sendTO = s[l:s.find(c)]
+                print("Forwarding to:" +sendTO)
+
+
+                b='<M>'
+                c='</M>'
+                l=s.find(b)+len(b)
+                MSG = s[l:s.find(c)]
+                print("Sending message:" +MSG)
+
+                ## add check to see if the received message was empty
+                
                 subprocess.run("python3 xsend.py " + sendTO + " " + MSG , shell=True, check=True)
 
     finally:
