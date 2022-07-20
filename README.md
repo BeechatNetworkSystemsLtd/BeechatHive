@@ -47,6 +47,7 @@ sudo pip install digi-xbee
 ```
 
 **Create database (needed on first run only)**
+
 Go into the folder called /flask_auth_app/, then start python by typing ```python``` into terminal then [ENTER]:
 
 ```
