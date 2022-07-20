@@ -34,11 +34,17 @@
 
 **[NEXT STEPS]**
 - Download beechat Hive code and unzip to /home/beechat (or your user)
-- Download waveshare folder and extract into /home/beechat (or your user). Now you should have two folders and some loose files: flask_auth_app (folder), e-Paper (folder), epd_2in13_V2_test.py (file), (start.sh) and other files.
-- move epd_2in13_V2_test.py to /e-Paper/RaspberryPi_JetsonNano/python/examples with:
+- (optional, if you use a waveshare screen) Download waveshare folder and extract into /home/beechat (or your user). Now you should have two folders and some loose files: flask_auth_app (folder), e-Paper (folder), epd_2in13_V2_test.py (file), (start.sh) and other files.
+- (optional, if you use a waveshare screen) move epd_2in13_V2_test.py to /e-Paper/RaspberryPi_JetsonNano/python/examples with:
     -  ```mv epd_2in13_V2_test.py ./e-Paper/RaspberryPi_JetsonNano/python/examples/ epd_2in13_V2_test.py```
 -   **/flask_auth_app/__ init__.py**: Set your server's database password here
 -   **xsend.txt**: set your XMPP credentials here.
+
+**Install requirements (needed on first run only)**
+```
+pip install flask flask-sqlalchemy flask-login xmpppy
+sudo pip install digi-xbee
+```
 
 **Create database (needed on first run only)**
 
@@ -53,10 +59,7 @@ db.create_all(app=create_app()) # pass the create_app result so Flask-SQLAlchemy
 
 Exit with ```exit()```
 
-**Install requirements (needed on first run only)**
-```
-pip install flask flask-sqlalchemy flask-login_
-```
+
 
 
 **Create SSL keys for the web app (needed on first run only):**
