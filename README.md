@@ -47,14 +47,13 @@ sudo pip install digi-xbee
 ```
 
 **Create database (needed on first run only)**
-
-Start python by typing ```python``` into terminal then [ENTER]:
+Go into the folder called /flask_auth_app/, then start python by typing ```python``` into terminal then [ENTER]:
 
 ```
 from project import db, create_app, models
 ```
 ```
-db.create_all(app=create_app()) # pass the create_app result so Flask-SQLAlchemy gets the configuration.
+db.create_all(app=create_app())
 ```
 
 Exit with ```exit()```
