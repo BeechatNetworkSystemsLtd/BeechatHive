@@ -23,9 +23,9 @@ BAUD_RATE = 9600
 
 
 def main():
-    print(" +-------------------------------------------------+")
-    print(" |            BEECHAT GATEWAY STARTING             |")
-    print(" +-------------------------------------------------+\n")
+    print(" +-------------------------+")
+    print(" | BEECHAT GATEWAY STARTED |")
+    print(" +-------------------------+\n")
 
     device = XBeeDevice(PORT, BAUD_RATE)
     import subprocess

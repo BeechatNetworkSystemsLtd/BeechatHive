@@ -36,12 +36,6 @@
 - Download beechat Hive code and unzip to /home/beechat (or your user):
   - ```wget https://github.com/BeechatNetworkSystemsLtd/BeechatHive/archive/refs/heads/main.zip```
   - ```unzip main.zip```
-- (OPTIONAL, if you use a waveshare e-ink screen) Download waveshare folder and extract into /home/beechat (or your user). 
-  - ```wget https://github.com/waveshare/e-Paper/archive/refs/heads/master.zip``` 
-  - ```unzip master.zip```
-  - Now you should have two folders and some loose files: flask_auth_app (folder), e-Paper (folder), epd_2in13_V2_test.py (file), (start.sh) and other files.
-  - move epd_2in13_V2_test.py to /e-Paper-master/RaspberryPi_JetsonNano/python/examples with:
-    -  ```mv epd_2in13_V2_test.py ./e-Paper-master/RaspberryPi_JetsonNano/python/examples/epd_2in13_V2_test.py```
 -   **~/BeechatHive-main/flask_auth_app/project/__ init__.py**: Set your server's database password here
 -   **~/BeechatHive-main/flask_auth_app/project/xsend.txt**: set your XMPP credentials here.
 -   Provide user with access permissions to the radio device (replace "beechat" for your username):
@@ -89,4 +83,3 @@ Want to contribute? Great, make a pull request!
 ## License
 
 GPLv2
-
