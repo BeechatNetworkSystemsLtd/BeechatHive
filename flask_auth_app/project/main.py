@@ -23,7 +23,7 @@ python3 epd_2in13_V2_test.py"""])
 @main.route('/startradio', methods=['POST'])
 def startRadio():
     process = subprocess.Popen(['/bin/python3 /home/beechat/BeechatHive-main/flask_auth_app/project/receiver.py'], shell=True)
-    print(process.pid())
+    #print(process.pid())
 #    import time
 #    print("Killing processin 10 seconds...")
 #    time.sleep(10)
@@ -35,11 +35,9 @@ def startRadio():
     
     return redirect(url_for('main.profile'))
 
-@main.route('/killscreen', methods=['POST'])
-def killScreen():
-    # screenid=$(ps aux | grep epd | awk -F '${epd}' '{print $1}' | awk  '{print $2}' | awk '{print $1}' | sed -n 1p |cut -d " " -f1); kill $screenid
-    # kill $screenid
-    subprocess.Popen(["/home/beechat/BeechatHive-main/flask_auth_app/project/killscreen.sh"])
+@main.route('/killradio', methods=['POST'])
+def killRadio():
+    subprocess.Popen(["sh /home/beechat/BeechatHive-main/flask_auth_app/project/killradio.sh"], shell=True)
     return redirect(url_for('main.profile'))
 
 

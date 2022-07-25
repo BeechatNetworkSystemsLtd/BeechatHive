@@ -10,8 +10,8 @@
 
 
 <form action="/sendmessage" method="post">
-  <label for="gateway">Gateway address:</label>
-  <input type="text" id="gateway" name="gateway" placeholder="0013A20041EFD43B">
+  <label for="gateway">Gateway address (leave blank if unknown):</label>
+  <input type="text" id="gateway" name="gateway" placeholder="e.g.: 0013A20041EFD43B">
 
   <label for="xmppaddress">XMPP address:</label>
   <input type="text" id="xmppaddress" name="xmppaddress" placeholder="xmppaddress">
@@ -22,6 +22,7 @@
   <button type="submit">Send</button>
 </form>
 
+<br>
 
 <!--T//  Testing message sending >-->
 
@@ -33,19 +34,9 @@
 <br>
 
 
-
-
-
-
-
 <br>
-<form method="POST" action="/startscreen">
-  <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Start Screen" name="profile">
-<!--T//  <button >Sign Up</button>-->
-</form>
-<br>
-<form method="POST" action="/killscreen">
-  <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Kill Screen" name="profile">
+<form method="POST" action="/killradio">
+  <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Kill Radio listener" name="profile">
 <!--T//  <button >Sign Up</button>-->
 </form>
 

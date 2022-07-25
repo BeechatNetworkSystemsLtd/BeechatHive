@@ -1,5 +1,5 @@
 ##Activate environment
-source /home/beechat/flask_auth_app/auth/bin/activate
+#source /home/beechat/flask_auth_app/auth/bin/activate
 
 ##Create database
 #python -c 'from project import db, create_app, models'
@@ -20,6 +20,6 @@ echo 'EXPORTed variables'
 #openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
 
 ##Run app
-flask run --host=0.0.0.0 --cert=/home/beechat/flask_auth_app/cert.pem --key=/home/beechat/flask_auth_app/key.pem
+flask run --host=0.0.0.0 --cert=/home/beechat/BeechatHive-main/flask_auth_app/cert.pem --key=/home/beechat/BeechatHive-main/flask_auth_app/key.pem
 
 
