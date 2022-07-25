@@ -43,7 +43,7 @@ def main():
 
         device.flush_queues()
 
-        print("Waiting for XMPP data...\n")
+        print("Waiting for data...\n")
 
         while True:
             xbee_message = device.read_data()
@@ -56,7 +56,6 @@ def main():
                 #s = "<T>user@xmppdomain.org</T><M>Sending from sender script</M>"
                 # TODO: replace prefix and suffix for bytes and encode string.
                 
-
 
                 b='<T>'
                 c='</T>'

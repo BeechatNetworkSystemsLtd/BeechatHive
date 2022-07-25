@@ -33,30 +33,39 @@
 
 
 **[NEXT STEPS]**
-- Download beechat Hive code and unzip to /home/beechat (or your user)
-- Download waveshare folder and extract into /home/beechat (or your user). Now you should have two folders and some loose files: flask_auth_app (folder), e-Paper (folder), epd_2in13_V2_test.py (file), (start.sh) and other files.
-- move epd_2in13_V2_test.py to /e-Paper/RaspberryPi_JetsonNano/python/examples with:
-    -  ```mv epd_2in13_V2_test.py ./e-Paper/RaspberryPi_JetsonNano/python/examples/ epd_2in13_V2_test.py```
--   **/flask_auth_app/__ init__.py**: Set your server's database password here
--   **xsend.txt**: set your XMPP credentials here.
+- Download beechat Hive code and unzip to /home/beechat (or your user):
+  - ```wget https://github.com/BeechatNetworkSystemsLtd/BeechatHive/archive/refs/heads/main.zip```
+  - ```unzip main.zip```
+- (OPTIONAL, if you use a waveshare e-ink screen) Download waveshare folder and extract into /home/beechat (or your user). 
+  - ```wget https://github.com/waveshare/e-Paper/archive/refs/heads/master.zip``` 
+  - ```unzip master.zip```
+  - Now you should have two folders and some loose files: flask_auth_app (folder), e-Paper (folder), epd_2in13_V2_test.py (file), (start.sh) and other files.
+  - move epd_2in13_V2_test.py to /e-Paper-master/RaspberryPi_JetsonNano/python/examples with:
+    -  ```mv epd_2in13_V2_test.py ./e-Paper-master/RaspberryPi_JetsonNano/python/examples/epd_2in13_V2_test.py```
+-   **~/BeechatHive-main/flask_auth_app/project/__ init__.py**: Set your server's database password here
+-   **~/BeechatHive-main/flask_auth_app/project/xsend.txt**: set your XMPP credentials here.
+-   Provide user with access permissions to the radio device (replace "beechat" for your username):
+    - ```sudo usermod -a -G dialout beechat```   
+
+**Install requirements (needed on first run only)**
+```
+python3 -m pip install flask flask-sqlalchemy flask-login xmpppy digi-xbee
+```
 
 **Create database (needed on first run only)**
 
-Start python by typing ```python``` into terminal then [ENTER]:
+Go into the folder called /flask_auth_app/, then start python by typing ```python``` into terminal then [ENTER]:
 
 ```
 from project import db, create_app, models
 ```
 ```
-db.create_all(app=create_app()) # pass the create_app result so Flask-SQLAlchemy gets the configuration.
+db.create_all(app=create_app())
 ```
 
 Exit with ```exit()```
 
-**Install requirements (needed on first run only)**
-```
-pip install flask flask-sqlalchemy flask-login_
-```
+
 
 
 **Create SSL keys for the web app (needed on first run only):**

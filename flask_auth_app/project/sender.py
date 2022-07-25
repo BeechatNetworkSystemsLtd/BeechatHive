@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys,os
 
 
@@ -16,7 +16,6 @@ import sys,os
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-from digi.xbee.devices import XBeeDevice
 import xmpp
 from digi.xbee.devices import XBeeDevice, RemoteXBeeDevice
 from digi.xbee.models.address import XBee64BitAddress
@@ -26,7 +25,7 @@ PORT = "/dev/ttyACM0"
 # TODO: Replace with the baud rate of your local module.
 BAUD_RATE = 9600
 
-DATA_TO_SEND = "<T>test@test.org</T><M>test</M>"
+#DATA_TO_SEND = "<T>test@test.org</T><M>test</M>"
 
 
 if len(sys.argv) < 1:
