@@ -14,25 +14,9 @@ def index():
 def profile():
     return render_template('profile.html', name=current_user.name)
 
-@main.route('/startscreen', methods=['POST'])
-def startScreen():
-    subprocess.Popen(["""cd "/home/beechat/e-Paper-master/RaspberryPi_JetsonNano/python3/examples"
-python3 epd_2in13_V2_test.py"""])
-    return redirect(url_for('main.profile'))
-
 @main.route('/startradio', methods=['POST'])
 def startRadio():
-    process = subprocess.Popen(['/bin/python3 /home/beechat/BeechatHive-main/flask_auth_app/project/receiver.py'], shell=True)
-    #print(process.pid())
-#    import time
-#    print("Killing processin 10 seconds...")
-#    time.sleep(10)
-#    process = subprocess.Popen(['sudo kill ' + process.pid()], shell=True)
-#   /bin/sudo /bin/python3
-    #out, err = process.communicate()
-    #print(out)
-    #s = out.decode()
-    
+    subprocess.Popen(['/bin/python3 /home/beechat/BeechatHive-main/flask_auth_app/project/receiver.py'], shell=True)
     return redirect(url_for('main.profile'))
 
 @main.route('/killradio', methods=['POST'])
