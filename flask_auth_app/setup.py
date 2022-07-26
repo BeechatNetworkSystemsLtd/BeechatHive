@@ -29,7 +29,7 @@ print("Current working directory: {0}".format(cwd))
 #input file
 fin = open(cwd+"/project/main.py", "rt")
 #output file to write the result to
-fout = open(cwd+"/project/main.py", "wt")
+fout = open(cwd+"/project/main.py.out", "wt")
 #for each line in the input file
 for line in fin:
 	#read replace the string and write to output file
@@ -38,4 +38,14 @@ for line in fin:
 fin.close()
 fout.close()
 
+#Delete old file
+myfile= cwd+"/project/main.py"
+
+## Try to delete the file ##
+try:
+    os.remove(myfile)
+except OSError as e:  ## if failed, report it back to the user ##
+    print ("Error: %s - %s." % (e.filename, e.strerror))
+#Rename new file
+os.rename(cwd+"/project/main.py.out",cwd+"/project/main.py")
 
