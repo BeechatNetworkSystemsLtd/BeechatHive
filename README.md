@@ -34,6 +34,7 @@
 
 
 **[MAIN STEPS]**
+
 **(1) Download the Beechat Hive code and unzip to /home/beechat (or your user):**
   - ```wget https://github.com/BeechatNetworkSystemsLtd/BeechatHive/archive/refs/heads/main.zip```
   - ```unzip main.zip```
