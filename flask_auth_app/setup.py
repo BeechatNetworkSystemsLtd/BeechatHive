@@ -49,3 +49,62 @@ except OSError as e:  ## if failed, report it back to the user ##
 #Rename new file
 os.rename(cwd+"/project/main.py.out",cwd+"/project/main.py")
 
+from project import db, create_app, models
+db.create_all(app=create_app())
+
+#Setup WiFi Hotspot
+
+#sudo nano /etc/dhcpcd.conf
+    #interface wlan0
+    #static ip_address=192.168.0.1/24  <-sets the IP of the RPi hotspot
+    #nohook wpa_supplicant
+
+#sudo nano /etc/dnsmasq.conf
+    #interface=wlan0
+    #listen-address=192.168.0.1
+    #bind-interfaces 
+    #server=8.8.8.8
+    #domain-needed
+    #bogus-priv
+    #dhcp-range=192.168.0.2,192.168.0.30,255.255.255.0,24h <- dictates which IP range is provided to the wlan0 interface, in this case from 192.168.0.2 to ...30
+    #no-hosts
+    #addn-hosts=/etc/hosts.dnsmasq
+
+#sudo nano /etc/hosts.dnsmasq
+    #192.168.0.1 beechatgateway <- set a hostname
+
+#sudo nano /etc/network/interfaces
+    #auto wlan0
+    #iface wlan0 inet static
+    #address 192.168.0.1
+    #netmask 255.255.255.0
+
+#sudo nano /etc/hostapd/hostapd.conf <- this file sets up the details for the WiFi Hotspot, such as SSID and password
+    #interface=wlan0
+    #driver=nl80211
+    #hw_mode=g
+    #channel=7
+    #wmm_enabled=0
+    #macaddr_acl=0
+    #auth_algs=1
+    #ignore_broadcast_ssid=0
+    #wpa=2
+    #wpa_key_mgmt=WPA-PSK
+    #wpa_pairwise=TKIP
+    #rsn_pairwise=CCMP
+    #ssid=NETWORK
+    #wpa_passphrase=PASSWORD
+
+#sudo nano /etc/default/hostapd <- needs to point to previous file
+    #DAEMON_CONF="/etc/hostapd/hostapd.conf" <- uncomment
+
+
+#To disable hotspot and reconnect to WiFi: 
+#sudo nano /etc/dhcpcd.conf : comment the lines at the bottom
+#sudo systemctl stop hostapd.service
+#sudo systemctl restart dhcpcd
+
+#To enable hotspot:
+#sudo nano /etc/dhcpcd.conf : uncomment the lines at the bottom
+#sudo systemctl start hostapd.service
+#sudo systemctl restart dhcpcd

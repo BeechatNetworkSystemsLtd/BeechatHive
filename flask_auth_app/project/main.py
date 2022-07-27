@@ -41,3 +41,13 @@ def gfg():
        
        #print(process.args())
     return redirect(url_for('main.profile'))
+
+    
+@main.route('/getmessages', methods=['POST']) 
+@login_required
+def content(): 
+    with open('messages.txt', 'r') as f: 
+        text=f.read()
+        print(text)
+        return render_template('profile.html', messages=text, name=current_user.name) 
+        

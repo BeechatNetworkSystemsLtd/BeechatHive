@@ -56,6 +56,9 @@ def main():
                 #s = "<T>user@xmppdomain.org</T><M>Sending from sender script</M>"
                 # TODO: replace prefix and suffix for bytes and encode string.
                 
+                # TODO: 27/07/2022 - check message type, XMPP or radio. If <T> tag is empty it's a radio message
+                # TODO: 27/07/2022 - save message into sqlite db
+
 
                 b='<T>'
                 c='</T>'
@@ -68,7 +71,13 @@ def main():
                 c='</M>'
                 l=s.find(b)+len(b)
                 MSG = s[l:s.find(c)]
-                print("Sending message:" +MSG)
+                print("Forwarding message:" +MSG)
+
+
+                from datetime import datetime
+                now = datetime.now()
+                with open('messages.txt', 'a') as f:
+                    f.write(now.strftime("%d/%m/%Y %H:%M:%S") +" from "+ str(xbee_message.remote_device.get_64bit_addr())+" | Message: " +MSG)
 
                 ## add check to see if the received message was empty
                 

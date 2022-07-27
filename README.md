@@ -46,7 +46,9 @@
    ```~/BeechatHive-main/flask_auth_app/xsend.txt```
 
 **(4) Provide user with access permissions to the radio device (replace "beechat" for your username):**
-     ```sudo usermod -a -G dialout beechat```   
+```
+sudo usermod -a -G dialout beechat
+```
 
 **(5) Install requirements (needed on first run only)**
 ```
@@ -58,28 +60,15 @@ python3 -m pip install flask flask-sqlalchemy flask-login xmpppy digi-xbee
 python3 setup.py
 ```
 
-**(7) Create database (needed on first run only)**
 
-Go into the folder called /flask_auth_app/, then start python by typing ```python``` into terminal then [ENTER]:
-
-```
-from project import db, create_app, models
-```
-```
-db.create_all(app=create_app())
-```
-
-Exit with ```exit()```
-
-
-**(8) Create SSL keys for the web app (needed on first run only):**
+**(7) Create SSL keys for the web app (needed on first run only):**
 Within the ```flask_auth_app``` folder: 
 ```
 openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
 ```
 
-**(9) Run app**
-Use the included ```start.sh``` script within the ```flask_auth_app folder```:
+**(8) Run app**
+Use the included ```start.sh``` script within the ```flask_auth_app``` folder:
 ``` ./start.sh```
 
 
