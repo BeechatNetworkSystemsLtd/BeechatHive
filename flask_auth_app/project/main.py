@@ -48,6 +48,8 @@ def gfg():
 def content(): 
     with open('messages.txt', 'r') as f: 
         text=f.read()
+        if(text==""):
+            text="No messages yet"
         print(text)
         return render_template('profile.html', messages=text, name=current_user.name) 
         
