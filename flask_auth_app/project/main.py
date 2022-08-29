@@ -51,5 +51,6 @@ def content():
         if(text==""):
             text="No messages yet"
         print(text)
+        text = text.replace("\n"," ### ")
         return render_template('profile.html', messages=text, name=current_user.name) 
         

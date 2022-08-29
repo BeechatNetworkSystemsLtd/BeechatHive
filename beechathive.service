@@ -1,0 +1,15 @@
+#/etc/systemd/system/beechathive.service
+[Unit]
+Description=Beechat Hive script starter on boot
+After=network.target
+
+[Service]
+User=beechat
+WorkingDirectory=/home/beechat/BeechatHive-main/flask_auth_app/
+Environment=FLASK_CONFIG=production
+Environment=FLASK_APP=project
+ExecStart=flask run --host=0.0.0.0 --cert=/home/beechat/BeechatHive-main/flask_auth_app/cert.pem --key=/home/beechat/BeechatHive-main/flask_auth_app/key.pem
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

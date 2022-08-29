@@ -18,21 +18,6 @@
 ## Setup: ##
 
 
-**[RASPBERRY PI SETUP]** 
-1. Download the Raspbian Imager from here: [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
-2. After executing Raspbian Imager, go to advanced options via the GUI and 
-    (1) set SSH to enabled
-    (2) set the user to "beechat" or a username of your choice
-    (3) set hostname to something memorable such as "beechathive" (make sure you use a different host name for every Hive)
-    (4) configure a Wi-Fi network, the same one your computer is connected to. That way, on the first boot you can ssh into it with ```ssh beechat@IP_OF_RPI_HERE```. If you don't know the IP, you can use the hostname you set in step 3. So you would use ```ssh beechat@beechathive```
-3. Once you've booted in, it is useful to make your Hive reachable from a .local network domain rather than an IP or hostname. So, instead of ```ssh beechat@192.168.1.57``` you would use ```ssh beechat@beechathive.local```. If you wish to do this do the following (make sure you use a different host name for every Hive) :
-    *  ``` sudo apt-get install avahi-utils ```
-    *  ``` sudo nano /etc/avahi/avahi-daemon.conf```
-    *  Uncomment the line starting with **host-name=** and add your domain such as "beechathive" (without quotes).
-    *  ```sudo  service avahi-daemon restart```
-    *  ```service avahi-daemon status``` If the last line says: _"Server startup complete. Host name is..."_ then it was successful.
-
-
 **[MAIN STEPS]**
 
 **(1) Download the Beechat Hive code and unzip to /home/beechat (or your user):**

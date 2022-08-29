@@ -77,11 +77,24 @@ def main():
                 from datetime import datetime
                 now = datetime.now()
                 with open('messages.txt', 'a') as f:
-                    f.write(now.strftime("%d/%m/%Y %H:%M:%S") +" from "+ str(xbee_message.remote_device.get_64bit_addr())+" | Message: " +MSG)
+                    f.write(now.strftime("%d/%m/%Y %H:%M:%S") +" from "+ str(xbee_message.remote_device.get_64bit_addr())+" | Message: " +MSG +"\n")
 
                 ## add check to see if the received message was empty
                 
-                subprocess.run("python3 xsend.py " + sendTO + " " + MSG , shell=True, check=True)
+
+                #Check for internet connection
+                import requests
+                def connected_to_internet(url="https://beechat.network/", timeout=5):
+                    try:
+                        _ = requests.head(url,timeout=timeout)
+                        return True
+                    except requests.ConnectionError:
+                        print("No Internet connection available.")
+                    return False
+                    
+                connected = connected_to_internet()
+                if(connected):
+                    subprocess.run("python3 xsend.py " + sendTO + " " + MSG , shell=True, check=True)
 
     finally:
         if device is not None and device.is_open():
